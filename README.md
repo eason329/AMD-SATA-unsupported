@@ -1,16 +1,21 @@
-# AMDAHCIPortInjector
+# AMDAHCIPort
 
 The kext expands the original [AHCIPortInjector.kext](https://www.insanelymac.com/forum/files/file/436-ahciportinjectorkext/). This kext can now injects `AMD FCH SATA Controller` in AHCI mode, which is never supported by macOS.
+
+Note: The `CtlnaAMDAHCIPort.kext`, which is based on `CtlnaAHCIPort.kext`, has not been tested and may not work (Remind that this controller is not Intel). Upon using this kext, you may need to block `AppleAHCIPort`.
+
+# macOS Compatibility
+
+`macOS 11 (Big Sur)` and `macOS 12 (Monterey)`. Other version may work but not tested.
 
 # Installation
 
 * Download the repo as ZIP
 * Unzip the kext
 * Put the kext into OC/Kexts (or CLOVER/kexts/others) in your EFI folder
-  * Make sure **NOT** to add AHCIPortInjector.kext as they are duplicated
 * Add the kext in config.plist
 
-And you are done. Boot to macOS and test if the text works.
+And you are done. Boot to macOS and test if the kext works.
 
 # FAQ
 
