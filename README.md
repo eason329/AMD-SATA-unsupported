@@ -2,7 +2,7 @@
 
 The kext expands the original [AHCIPortInjector.kext](https://www.insanelymac.com/forum/files/file/436-ahciportinjectorkext/). This kext can now injects `AMD FCH SATA Controller` in AHCI mode, which is never supported by macOS.
 
-Note: The `CtlnaAMDAHCIPort.kext`, which is based on `CtlnaAHCIPort.kext`, has not been tested and may not work (Remind that this controller is not Intel). Upon using this kext, you may need to block `AppleAHCIPort`.
+Note: The `CtlnaAMDAHCIPort.kext`, which is based on `CtlnaAHCIPort.kext`, has not been tested and does not work (Remind that this controller is not Intel).
 
 # macOS Compatibility
 
