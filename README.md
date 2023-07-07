@@ -1,12 +1,14 @@
-# AMDAHCIPort
+# AMD-SATA-unsupported
 
-The kext expands the original [AHCIPortInjector.kext](https://www.insanelymac.com/forum/files/file/436-ahciportinjectorkext/). This kext can now injects `AMD FCH SATA Controller` in AHCI mode, which is never supported by macOS.
+The kext expands the original [AHCIPortInjector.kext](https://www.insanelymac.com/forum/files/file/436-ahciportinjectorkext/). This kext can now injects `AMD FCH SATA Controller` in AHCI mode, which is never supported by macOS. **This kext is intended to work on AMD system (especially AMD laptop). Putting this in any Intel system will not work!**
 
-Note: The `CtlnaAMDAHCIPort.kext`, which is based on `CtlnaAHCIPort.kext`, has not been tested and does not work (Remind that this controller is not Intel).
+Warning: The included `CtlnaAMDAHCIPort.kext`, which is based on `CtlnaAHCIPort.kext` **does not work** right now.
 
 # macOS Compatibility
 
-`macOS 11 (Big Sur)` and `macOS 12 (Monterey)`. Other version may work but not tested.
+This kext is tested on `macOS 11 (Big Sur)` and `macOS 12 (Monterey)` installed in a AMD laptop (Lenovo IdeaPad C340-14API) with SATA controller and still usable. Other versions may work but not tested.
+
+This kext relies on the IO class `AppleIntelPchSeriesAHCI`, which was already removed by Apple since Big Sur. While this issue is mostly cosmetic, some users may encountered with problems such as `Couldn't alloc class "AppleIntelPchSeriesAHCI"` error, or hard drives not being detected in Disk Utility.
 
 # Installation
 
