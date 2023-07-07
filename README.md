@@ -1,6 +1,8 @@
 # AMD-SATA-unsupported
 
-The kext expands the original [AHCIPortInjector.kext](https://www.insanelymac.com/forum/files/file/436-ahciportinjectorkext/). This kext can now injects `AMD FCH SATA Controller` in AHCI mode, which is never supported by macOS. **This kext is intended to work on AMD system (especially AMD laptop). Putting this in any Intel system will not work!**
+The kext expands the original [AHCIPortInjector.kext](https://www.insanelymac.com/forum/files/file/436-ahciportinjectorkext/). This kext can now injects `AMD FCH SATA Controller` in AHCI mode, which is never supported by macOS. 
+
+**This kext is intended to work on AMD system (especially AMD laptop), and does nothing in Intel system other than wasting the space!**
 
 Warning: The included `CtlnaAMDAHCIPort.kext`, which is based on `CtlnaAHCIPort.kext` **does not work** right now.
 
@@ -28,3 +30,4 @@ soonTM
 * Apple for macOS
 * [Fabio1971](https://www.insanelymac.com/forum/profile/651049-fabio1971/) from insanelymac.com created the original AHCIPortInjector.kext
 * [iFIRE and amdTnator](https://www.insanelymac.com/forum/topic/280681-amd-sata-controller/) from insanelymac.com gave me the idea
+* dortania for providing CtlnaAHCIPort.kext
