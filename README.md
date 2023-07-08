@@ -4,13 +4,13 @@ This kernel extension injects `AMD FCH SATA Controller` in AHCI mode, which is n
 
 **This kext is intended to work on AMD system (especially AMD laptop), and does nothing in Intel system other than wasting the space!**
 
-Warning: The included `CtlnaAMDAHCIPort.kext`, which is based on `CtlnaAHCIPort.kext` **does not work** right now.
-
 # macOS Compatibility
 
 This kext is tested on `macOS 11 (Big Sur)` and `macOS 12 (Monterey)` installed in a AMD laptop (Lenovo IdeaPad C340-14API) with SATA controller and works like a charm. Not work on `macOS 13 (Ventura)` as the kext caused kernel panic. Other versions may work but not tested.
 
 This kext makes use of the IOClass `AppleIntelPchSeriesAHCI`, which was already removed by Apple since Big Sur. While this issue is mostly cosmetic, some users may encountered with problems such as `Couldn't alloc class "AppleIntelPchSeriesAHCI"` error, or hard drives not being detected in Disk Utility.
+
+If you going to install macOS 11 or newer, try `AMD-SATA-unsupported.kext` first. If the kext does not work, then try `CtlnaAMDAHCIPort.kext`, which is based on `CtlnaAHCIPort.kext`.
 
 # Installation
 
