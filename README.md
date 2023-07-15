@@ -29,11 +29,9 @@ And you are done. Boot to macOS and test if the kext works.
 
 soonTM
 
-# Test Rports
+# Test Reports
 
 This kext is tested on `macOS 11 (Big Sur)` and `macOS 12 (Monterey)` installed in a AMD laptop (Lenovo IdeaPad C340-14API) with SATA controller and works like a charm. Other versions may work but not tested.
-
-Note: Some users report that this kext does not work on `macOS 13 (Ventura)` and above.
 
 # Credit
 
