@@ -35,16 +35,27 @@ And you are done. Boot to macOS and test if the kext works.
 1. Open devmgmt.msc / Search 'Device Manager' in Windows
 2. Expand "IDE ATA/ATAPI controllers" and open "Standard AHCI SATA controller"
 3. Go to the Details tab and select Hardware IDs from the dropdown menu.
-4. In the box underneath, you will find a string starting with PCI\VEN_####&DEV_$$$$.
+4. In the box underneath, you will find a string starting with PCI\VEN_1002&DEV_####.
 5. Open the kext's Info.plist file with ProperTree and go to the AMD-FCH-AHCI section under IOKitPersonalities.
-6. Open the sub-section called `IONameMatch`. Then add a new child under it. Set the type to String and set the value to `pci####,$$$$`.
+6. Open the sub-section called `IONameMatch`. Then add a new child under it. Set the type to String and set the value to `pci1002,####`.
 7. Save the file and reboot
-8. It should work now!
+8. It should work now! You can even submit a PR here to help other people :D
 
+## When I opened the Settings app, it crashed immediately
+This problem is caused by "Volume hash mismatch" error. Apple has integrated "About this Mac" into Settings app since macOS 13. Therefore the error can actually crash the whole app. To fix this problem:
+1. Open Automator app and click "Add"
+2. Choose "Application" as workflow type and click "Choose"
+3. Click "Utlilties", then drag "Run Shell Script" to the right of the screen
+4. Type the following code: `echo " *Your account's password if set* " | sudo -S purge`
+5. Save (to anywhere you won't delete)
 
-# Test Reports
+You can now run the app on the location you just saved each time the problem occured. After that, the Settings app should be opened with no problem. However, if you want to run the app each time you log in:
 
-This kext is tested on `macOS 11 (Big Sur)` and `macOS 12 (Monterey)` installed in a AMD laptop (Lenovo IdeaPad C340-14API) with SATA controller and works like a charm. Other versions may work but not tested.
+6. Open Settings app and select "General" --> "Log In Items"
+7. Click "+" and select the app you just created.
+
+Make sure your account is administrator when running the script.
+
 
 # Credit
 
@@ -57,4 +68,4 @@ This kext is tested on `macOS 11 (Big Sur)` and `macOS 12 (Monterey)` installed 
 # Disclaimer
 
 * The author has no responsibility if your device bricked after you installed this kext. 
-* The author has zero knowledge of programming kext, they may not able to answer your question or fix any bugs.
+* The author may not able to answer your question or fix bugs.
